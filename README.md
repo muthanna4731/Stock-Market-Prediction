@@ -1,40 +1,60 @@
-# Stock Market Prediction using Linear Regression
+# Stock Market Prediction using Facebook Prophet
 
-## Overview
-This project is a simple implementation of stock market prediction using **Linear Regression**. The model predicts the monthly closing price of IBM stock based on historical stock data. It includes essential preprocessing, feature engineering, and model evaluation steps. It is a starting point for time-series prediction tasks.
+## Overview  
+This project is a **machine learning-based stock market prediction system** that forecasts **monthly closing prices** for stocks using **Facebook Prophet**. It integrates **market trends, momentum, and volatility indicators** to enhance prediction accuracy.  
 
-## Features
-- **Data Preprocessing:**
-  - Converted timestamps to `datetime` format for better indexing.
-  - Removed missing values to ensure data integrity.
-  - Sorted the dataset by date for chronological consistency.
+ **Key Features:**  
+- Data preprocessing and feature engineering  
+- Time-series forecasting with **Facebook Prophet**  
+- **S&P 500 data** as a market trend feature  
+- **Interactive Streamlit dashboard** for easy predictions  
+- Model evaluation using **MAE, MSE, and RMSE**  
 
-- **Feature Engineering:**
-  - Added new features such as:
-    - `Range`: Difference between the high and low prices of the stock.
-    - `Percentage Change`: Percent change between the opening and closing prices.
+---
 
-- **Visualization:**
-  - Plotted the stock's closing price trend over time for data analysis.
+## Features  
 
-- **Machine Learning:**
-  - Selected important features using **Recursive Feature Elimination (RFE)**.
-  - Built and trained a **Linear Regression Model**.
-  - Evaluated the model using metrics such as:
-    - Mean Squared Error (MSE)
-    - R² Score
+### **Data Preprocessing**  
+- Converted timestamps to `datetime` format for time-series analysis.  
+- Removed missing values and handled inconsistencies.  
+- Merged **S&P 500 historical data** as an external market trend feature.  
 
-## Dataset
-The dataset (`monthly_IBM.csv`) contains historical monthly stock prices for IBM, including columns such as:
-- `timestamp`: Date of the stock data.
-- `open`: Opening price of the stock.
-- `high`: Highest price of the stock.
-- `low`: Lowest price of the stock.
-- `close`: Closing price of the stock.
+### **Feature Engineering**  
+The model uses the following **financial indicators**:  
+- **3-month & 6-month momentum** – Captures short-term and mid-term trends.  
+- **12-month volatility** – Measures price fluctuations for stability.  
+- **Market trend (S&P 500 data)** – Represents broader market influence.  
+- **SMA-10 (Simple Moving Average)** – Identifies short-term price trends.  
+- **Percentage Change** – Measures stock price fluctuations.  
 
-## Dependencies
-This project uses the following Python libraries:
-- `pandas`
-- `numpy`
-- `matplotlib`
-- `sklearn`
+### **Forecasting with Facebook Prophet**  
+- Adjusted **changepoint_prior_scale** to improve trend adaptability.  
+- Configured **monthly and quarterly seasonality** for better long-term predictions.  
+- Used external **regressors (market trend, momentum, and volatility)** for enhanced accuracy.  
+- **Interactive slider** allows users to **adjust forecast timeline** (up to 36 months).  
+
+### **Model Evaluation**  
+- **Mean Absolute Error (MAE), Mean Squared Error (MSE), and Root Mean Squared Error (RMSE)** for performance assessment.  
+- Compared **actual vs. predicted** prices to verify accuracy.  
+
+### **Interactive Dashboard (Streamlit)**  
+- **Upload custom stock data** or use the **default IBM dataset**.  
+- View **historical stock trends** and **forecasted prices**  
+- Visualize **actual vs. predicted** values using **interactive charts**.  
+- **Model performance metrics** displayed on the dashboard.  
+
+---
+
+## Dataset  
+The model works with historical monthly stock data, containing:  
+- **Date (timestamp)** – Time reference for each data point.  
+- **Open, High, Low, Close** – Essential stock price values.  
+- **Volume** – Represents market activity.  
+
+_Default dataset: IBM stock historical prices (monthly intervals)._  
+_Users can upload their own CSV file containing stock data._  
+
+---
+
+## Run Streamlit App
+streamlit run your_script.py
