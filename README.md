@@ -8,9 +8,8 @@ This project is a **machine learning-based stock market prediction system** that
 - Time-series forecasting with **Facebook Prophet**  
 - **S&P 500 data** as a market trend feature  
 - **Interactive Streamlit dashboard** for easy predictions  
-- Model evaluation using **MAE, MSE, and RMSE**  
+- Model evaluation using **MAE, MSE, and RMSE**
 
----
 
 ## Features  
 
@@ -43,7 +42,6 @@ The model uses the following **financial indicators**:
 - Visualize **actual vs. predicted** values using **interactive charts**.  
 - **Model performance metrics** displayed on the dashboard.  
 
----
 
 ## Dataset  
 The model works with historical monthly stock data, containing:  
@@ -54,7 +52,6 @@ The model works with historical monthly stock data, containing:
 _Default dataset: IBM stock historical prices (monthly intervals)._  
 _Users can upload their own CSV file containing stock data._  
 
----
 
 ## Run Streamlit App
 streamlit run your_script.py
